@@ -25,19 +25,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
   
     const helpTextElm = document.querySelector('.help-text');
   
-    for(var i = 0; i<helpTextList.length; i++){
+    for(let i = 0; i<helpTextList.length; i++){
       let btn = document.querySelector('#' + helpTextList[i].id);
-  
-      const helpTextMaker = (j)=>{
-        return ()=>{
-          helpTextElm.textContent = helpTextList[j].text;
-        }
-      }
-  
-      btn.addEventListener('mouseenter', helpTextMaker(i))
+
+      btn.addEventListener('mouseenter', ()=>{
+        helpTextElm.textContent = helpTextList[i].text;
+      })
+
       btn.addEventListener('mouseleave', ()=>{
-        helpTextElm.textContent = '';
+        helpTextElm.textContent = "";
       })
     }
-  
   })
