@@ -27,17 +27,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
   
     for(var i = 0; i<helpTextList.length; i++){
       let btn = document.querySelector('#' + helpTextList[i].id);
-      console.log(btn)
   
       const helpTextMaker = (j)=>{
         return ()=>{
-          console.log(j);
-          console.log(helpTextList[j]);
-          // helpTextElm.textContent = helpTextList[i].text;
+          helpTextElm.textContent = helpTextList[j].text;
         }
       }
   
       btn.addEventListener('mouseenter', helpTextMaker(i))
+      btn.addEventListener('mouseleave', ()=>{
+        helpTextElm.textContent = '';
+      })
     }
   
   })
